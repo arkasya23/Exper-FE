@@ -1,0 +1,63 @@
+
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .logo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    height: auto;
+    width: auto;
+    // margin-bottom: 230px;
+    margin: 100px 0;
+    align-items: center;
+
+    .logo-img-primary {
+      position: absolute;
+    } 
+
+    .logo-img{
+      position: absolute;
+      z-index: 10;
+    }
+  }
+
+  .custom-form-control {
+    height: 56px;
+    border: 1px solid #2C3539;
+  }
+
+  .form-container {
+    margin-bottom: 24px;
+  }
+
+
+  .password-form {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+    .btn-red-eye {
+      position: absolute;
+      right: 10px;
+      z-index: 10;
+    }
+  }
+
+  .btn-sign-in {
+    color: dodgerblue;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
