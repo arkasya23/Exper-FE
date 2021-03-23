@@ -1,11 +1,15 @@
-
-
 .container {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 48px;
+
+  .title {
+    font-family: confortaa-regular;
+    font-size: 24px;
+  }
 
   .logo-container{
     display: flex;
@@ -14,17 +18,12 @@
     position: relative;
     height: auto;
     width: auto;
-    // margin-bottom: 230px;
-    margin: 100px 0;
+    margin: 0px 0;
     align-items: center;
 
-    .logo-img-primary {
-      position: absolute;
-    } 
-
-    .logo-img{
-      position: absolute;
-      z-index: 10;
+    .logo {
+      width: 194px;
+      height: 194px;
     }
   }
 
@@ -37,13 +36,11 @@
     margin-bottom: 24px;
   }
 
-
   .password-form {
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-
 
     .btn-red-eye {
       position: absolute;
@@ -54,7 +51,10 @@
 
   .custom-row {
     padding: 5px 15px;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+    font-family: roboto-regular;
   }
 
   .btn-sign-in {
@@ -65,4 +65,26 @@
       cursor: pointer;
     }
   }
+
+  .btn-container {
+    margin-top: 32px;
+  } 
+
+  .custom-btn-primary {
+    background-color: #1B82E6 !important;
+    color: white;
+  }
+ 
+}
+
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: roboto-regular;
+  font-size: 16px;
+}
+
+input:-internal-autofill-selected {
+  font-family: roboto-regular;
+  font-size: 16px;
 }
