@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 48px;
+  align-items: center;
 
   .title {
     font-family: confortaa-regular;
@@ -34,6 +35,8 @@
 
   .form-container {
     margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
   }
 
   .password-form {
@@ -87,4 +90,13 @@
 input:-internal-autofill-selected {
   font-family: roboto-regular;
   font-size: 16px;
+}
+
+
+.error-text {
+  margin-top: 5px;
+  margin-left: 3px;
+  font-size: 10px;
+  color: red;
+  font-family: confortaa-regular;
 }
