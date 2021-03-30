@@ -6,70 +6,50 @@
   <div class="row justify-content-center mb-2">
     <p class="title">Exper</p>
   </div>
+
   <div class="col-sm-6">
-  
-    <form [formGroup]="signupForm" (ngSubmit)="register()">
+    <form [formGroup]="signupForm" (ngSubmit)="register()"> 
       <div class="form-container">
-        <input 
-          type="text" 
-          class="form-control custom-form-control"  
-          placeholder="Email" 
-          autocomplete="off"
-          formControlName="email"> 
-        <span
-          *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
-          class="error-text"
-          >
-          Invalid email address
-        </span>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-hint  *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="error-text">Invalid email address</mat-hint>
+          </mat-form-field>
       </div>
       
-        <div class="form-container">
-          <div class="password-form">
-            <input 
-            type="password" 
-            class="form-control custom-form-control" 
-            placeholder="Password" 
-            autocomplete="off"
-            formControlName="password">
-            <img class="btn-red-eye" src="../../../assets/images/red_eye.svg">
-          </div>
-          <span
-          *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
-          class="error-text"
-          >
-          Invalid password
-        </span>
-        </div>
-        
-        <div class="form-container">
-          <div class="password-form">
-            <input 
-              type="password" 
-              class="form-control custom-form-control" 
-              placeholder="Confirm password"
-              formControlName="confirmPassword">
-            <img class="btn-red-eye" src="../../../assets/images/red_eye.svg">
-          </div>
-          <span
-          *ngIf="signupForm.get('confirmPassword').touched && signupForm.hasError('notSame')"
-          class="error-text"
-          >
-          Passwords don't match
-        </span>
+      <div class="form-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <mat-hint *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="error-text">Password must have minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</mat-hint>
+        </mat-form-field>
+        <div *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="password-error-space"></div>
       </div>
-     
+
+      <div class="form-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <mat-hint *ngIf="signupForm.get('confirmPassword').touched && signupForm.hasError('notSame')" class="error-text">Passwords do not match</mat-hint>
+        </mat-form-field>
+      </div>
+    
       <div class="row custom-row">
         Already have an account? &nbsp; 
         <span class="btn-sign-in">Sign in</span>
       </div>
       
       <div class="row justify-content-center btn-container"> 
-        <button 
-          type="submit" 
-          class="btn custom-btn-primary"
-          [ngClass]="{'disabled': !signupForm.valid}"
-        > <img src="../../../assets/images/sign_in.svg"> SIGN UP</button>
+        <button
+          mat-button 
+          class="custom-btn-primary"
+          type="submit"    
+         >
+          <mat-icon>login</mat-icon>
+          SIGN UP
+      </button>
       </div>
     </form>
   </div>

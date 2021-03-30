@@ -34,9 +34,9 @@
   }
 
   .form-container {
-    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   .password-form {
@@ -53,8 +53,8 @@
   }
 
   .custom-row {
-    padding: 5px 15px;
-    margin: 10px 0;
+    padding: 0 10px;
+    margin: 0;
     font-size: 14px;
     color: rgba(0,0,0,0.6);
     font-family: roboto-regular;
@@ -76,27 +76,31 @@
   .custom-btn-primary {
     background-color: #1B82E6 !important;
     color: white;
+    display: flex;
+    align-items: center;
   }
  
 }
 
 
-.form-control::placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  font-family: roboto-regular;
-  font-size: 16px;
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  font-family: 'confortaa-regular';
 }
-
-input:-internal-autofill-selected {
-  font-family: roboto-regular;
-  font-size: 16px;
-}
-
 
 .error-text {
-  margin-top: 5px;
-  margin-left: 3px;
-  font-size: 10px;
+  padding-bottom: 30px;
   color: red;
   font-family: confortaa-regular;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black;
+}
+
+.password-error-space {
+  height: 50px;
+}
+
+.mat-form-field {
+  height: 80px !important;
 }

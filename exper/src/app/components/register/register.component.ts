@@ -2,8 +2,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ApiProdService } from "src/app/shared/services/api.prod.service";
+import { UserService } from "src/app/shared/services/user.service";
 import { RegisterModel } from "src/app/shared/models/register.model";
+import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-register',
@@ -13,8 +16,19 @@ import { RegisterModel } from "src/app/shared/models/register.model";
 export class RegisterComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private http: HttpClient, private apiService: ApiProdService){
+  constructor(
+    private http: HttpClient,
+    private userService: UserService,
+    public dialog: MatDialog,
+    private router: Router,
+    private _snackBar: MatSnackBar){
 
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   ngOnInit(): void {
@@ -28,16 +42,20 @@ export class RegisterComponent implements OnInit {
 
   register() {
     const registerPayload = new RegisterModel(this.signupForm.value.email, this.signupForm.value.password);
-    this.apiService.register(registerPayload).subscribe(token => {
-      this.apiService.updateToken(token);
+    this.userService.register(registerPayload).subscribe(token => {
+      this.userService.updateToken(token);
+      this.router.navigate(['/dashboard']);
     },
     err => {
       console.log(err);
+      // this.openDialog();
+      this.openSnackBar('The account could not be created', '');
+      
     });
   }
 
   invalidPassword(control: FormControl): {[s: string]: boolean} {
-    const validPasswordExpr = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+    const validPasswordExpr = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
     const valid = validPasswordExpr.test(control.value);
   
     if(valid === false) {
