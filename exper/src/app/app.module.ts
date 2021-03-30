@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ApiProdService } from './shared/services/api.prod.service';
+import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
@@ -14,6 +15,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   declarations: [
     AppComponent,
     RegisterComponent
+    LoginComponent,
     DashboardComponent,
   ],
   imports: [
