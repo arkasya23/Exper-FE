@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private _snackBar: MatSnackBar){
-
   }
 
   openSnackBar(message: string, action: string) {
@@ -48,9 +47,7 @@ export class RegisterComponent implements OnInit {
     },
     err => {
       console.log(err);
-      // this.openDialog();
       this.openSnackBar('The account could not be created', '');
-      
     });
   }
 
