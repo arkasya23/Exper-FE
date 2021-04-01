@@ -1,0 +1,106 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 48px;
+  align-items: center;
+
+  .title {
+    font-family: confortaa-regular;
+    font-size: 24px;
+  }
+
+  .logo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    height: auto;
+    width: auto;
+    margin: 0px 0;
+    align-items: center;
+
+    .logo {
+      width: 194px;
+      height: 194px;
+    }
+  }
+
+  .custom-form-control {
+    height: 56px;
+    border: 1px solid #2C3539;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .password-form {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .btn-red-eye {
+      position: absolute;
+      right: 10px;
+      z-index: 10;
+    }
+  }
+
+  .custom-row {
+    padding: 0 10px;
+    margin: 0;
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+    font-family: roboto-regular;
+  }
+
+  .btn-sign-in {
+    color: dodgerblue;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .btn-container {
+    margin-top: 32px;
+  } 
+
+  .custom-btn-primary {
+    background-color: #1B82E6 !important;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+ 
+}
+
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  font-family: 'confortaa-regular';
+}
+
+.error-text {
+  padding-bottom: 30px;
+  color: red;
+  font-family: confortaa-regular;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black;
+}
+
+.password-error-space {
+  height: 50px;
+}
+
+.mat-form-field {
+  height: 80px !important;
+}
