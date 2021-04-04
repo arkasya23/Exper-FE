@@ -76,7 +76,6 @@ export class RegisterComponent implements OnInit {
   }
 
   toggleConfirmPasswordVisibility() {
-    console.log('asdsd');
     this.showConfirmPassword = !this.showConfirmPassword;
     console.log(this.showConfirmPassword);
   }
