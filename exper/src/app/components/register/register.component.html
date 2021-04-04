@@ -20,8 +20,8 @@
       <div class="form-container">
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput type="password" placeholder="Password" formControlName="password">
-          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password">
+          <mat-icon matSuffix (click)="togglePasswordVisibility()">remove_red_eye</mat-icon>
           <mat-hint *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="error-text">Password must have minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</mat-hint>
         </mat-form-field>
         <div *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="password-error-space"></div>
@@ -30,8 +30,8 @@
       <div class="form-container">
         <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
-          <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
-          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <input matInput [type]="showConfirmPassword ? 'text' : 'password'" placeholder="Confirm Password" formControlName="confirmPassword">
+          <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()">remove_red_eye</mat-icon>
           <mat-hint *ngIf="signupForm.get('confirmPassword').touched && signupForm.hasError('notSame')" class="error-text">Passwords do not match</mat-hint>
         </mat-form-field>
       </div>

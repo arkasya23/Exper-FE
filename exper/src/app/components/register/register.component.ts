@@ -15,6 +15,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 })
 export class RegisterComponent implements OnInit {
   signupForm: FormGroup;
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -71,5 +73,13 @@ export class RegisterComponent implements OnInit {
 
   redirectToLogin(){
     this.router.navigate(['/login']);
+  }
+
+  togglePasswordVisibility() { 
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPasswordVisibility() {
+    this.showConfirmPassword = !this.showConfirmPassword;
   }
 }
