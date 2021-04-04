@@ -3,6 +3,7 @@ import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
+import { LoginModel } from "src/app/shared/models/login.model";
 import { UserService } from "src/app/shared/services/user.service";
 
 @Component({
@@ -38,6 +39,17 @@ export class LoginComponent {
 
     login() {
         console.log('login');
+
+        const loginPayload = new LoginModel(this.loginForm.value.email, this.loginForm.value.password);
+        this.userService.register(loginPayload).subscribe(token => {
+          this.userService.updateToken(token);
+          this.router.navigate(['/dashboard']);
+        },
+        err => {
+          console.log(err);
+          this.openSnackBar('Invalid email or password', '');
+        });
+
     }
 
     redirectToSignUp() {
