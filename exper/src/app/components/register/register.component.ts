@@ -68,4 +68,8 @@ export class RegisterComponent implements OnInit {
 
     return password === confirmPassword ? null : { notSame: true }     
   }
+
+  redirectToLogin(){
+    this.router.navigate(['/login']);
+  }
 }
