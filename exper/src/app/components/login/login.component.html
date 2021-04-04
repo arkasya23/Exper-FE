@@ -1,1 +1,47 @@
-<p> login placeholder </p>
+<div class="container">
+    <div class="logo-container">
+      <img class="logo" src="../../../assets/images/logo.svg">
+    </div>
+  
+    <div class="row justify-content-center mb-2">
+      <p class="title">Exper</p>
+    </div>
+  
+    <div class="col-sm-6">
+      <form [formGroup]="loginForm" (ngSubmit)="login()"> 
+        <div class="form-container">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-hint *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched" class="error-text">Please enter a valid email address</mat-hint>
+            </mat-form-field>
+        </div>
+        
+        <div class="form-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password">
+            <mat-hint *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="error-text">Please enter your password</mat-hint>
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">remove_red_eye</mat-icon>
+          </mat-form-field>
+        </div>
+  
+        <div class="row custom-row mt-3">
+          Don't have an account? &nbsp; 
+          <span class="btn-sign-in" (click)="redirectToSignUp()">Sign up</span>
+        </div>
+        
+        <div class="row justify-content-center btn-container"> 
+          <button
+            mat-button 
+            class="custom-btn-primary"
+            [disabled]="!loginForm.valid"
+            type="submit"    
+           >
+            <mat-icon>login</mat-icon>
+            SIGN IN
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>

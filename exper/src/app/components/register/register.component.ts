@@ -71,12 +71,15 @@ export class RegisterComponent implements OnInit {
     return password === confirmPassword ? null : { notSame: true }     
   }
 
+  redirectToLogin(){
+    this.router.navigate(['/login']);
+  }
+
   togglePasswordVisibility() { 
     this.showPassword = !this.showPassword;
   }
 
   toggleConfirmPasswordVisibility() {
     this.showConfirmPassword = !this.showConfirmPassword;
-    console.log(this.showConfirmPassword);
   }
 }
