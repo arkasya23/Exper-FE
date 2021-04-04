@@ -12,6 +12,7 @@ import { UserService } from "src/app/shared/services/user.service";
 })
 export class LoginComponent { 
     loginForm: FormGroup;
+    showPassword: boolean = false;
 
 
     constructor(
@@ -42,6 +43,10 @@ export class LoginComponent {
     redirectToSignUp() {
       this.router.navigate(['/register']);
 
+    }
+
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
     }
 }
 
