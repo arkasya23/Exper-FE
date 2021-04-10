@@ -10,6 +10,7 @@ import { MaterialSharedModule } from './shared/material-shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserService } from './shared/services/user.service';
+import { TripService } from './shared/services/trip.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { UserService } from './shared/services/user.service';
     BrowserAnimationsModule,
     MaterialSharedModule
   ],
-  providers: [UserService],
+  providers: [UserService, TripService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
