@@ -1,0 +1,18 @@
+<mat-expansion-panel *ngFor="let trip of trips" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <div class="col">
+              <div class="row">
+                {{trip.name}}
+              </div>
+              <div class="row">
+                  {{trip.groupSize}} Members
+              </div>
+          </div>
+      </mat-panel-title>
+      <mat-panel-description>
+        
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
