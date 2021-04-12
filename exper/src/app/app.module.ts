@@ -13,7 +13,7 @@ import { UserService } from './shared/services/user.service';
 import { TripComponent } from './components/dashboard/trip/trip.component';
 import { TripService } from './shared/services/trip.service';
 import { AddTripComponent } from './dialogs/add-trip/add-trip.component';
-
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { AddTripComponent } from './dialogs/add-trip/add-trip.component';
     DashboardComponent,
     TripComponent,
     AddTripComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
