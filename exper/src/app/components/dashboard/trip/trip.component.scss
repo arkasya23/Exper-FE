@@ -1,38 +1,47 @@
 :host ::ng-deep .mat-expansion-panel {
-    border-radius: 0;
-    padding: 12px 0;
+  border-radius: 0;
+  padding: 12px 0;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0;
+}
+.title {
+  font-family: 'roboto-regular';
+  font-size: 16px !important;
 }
 
 .subtitle {
-    color: rgba(0, 0, 0, 0.6);
-    font-family: 'roboto-regular';
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'roboto-regular';
+  font-size: 14px !important;
 }
 
 .tab-label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 :host ::ng-deep .mat-tab-labels {
-    justify-content: center;
+  justify-content: center;
 }
 
 :host ::ng-deep .mat-tab-label {
-    height: 72px;
-    // width: 90px;
-    min-width: 0!important;
+  height: 72px;
+  min-width: 0!important;
+  width: 80px;
 }
 
 :host ::ng-deep .mat-tab {
-    width: 50px;
+  width: 50px;
 }
 
 :host ::ng-deep .mat-tab-label-active {
-   color: #1B82E6;
-   min-width: 0!important;
+  color: #1B82E6;
+  min-width: 0!important;
 }
 
 :host ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
-    background: #1B82E6;
+  background: #1B82E6;
 } 

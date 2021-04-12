@@ -2,7 +2,7 @@
   <mat-expansion-panel-header>
     <mat-panel-title>
         <div class="col">
-            <div class="row">
+            <div class="row title">
               {{trip.name}}
             </div>
             <div class="row subtitle">
@@ -21,12 +21,7 @@
         </div>
       </ng-template>
       <ng-template matTabContent>
-        <!-- <p> groupsss</p>
-        <div *ngFor="let user of trip.users">
-          {{user.email}}
-        </div>  -->
         <app-members [trip]="trip"></app-members>
-
       </ng-template>
     </mat-tab>
 
