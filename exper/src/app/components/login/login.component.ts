@@ -41,7 +41,7 @@ export class LoginComponent {
         console.log('login');
 
         const loginPayload = new LoginModel(this.loginForm.value.email, this.loginForm.value.password);
-        this.userService.register(loginPayload).subscribe(token => {
+        this.userService.login(loginPayload).subscribe(token => {
           this.userService.updateToken(token);
           this.router.navigate(['/dashboard']);
         },

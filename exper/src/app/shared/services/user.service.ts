@@ -1,9 +1,10 @@
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { RegisterModel } from "../models/register.model";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { RestService } from "./rest.service";
+import { LoginModel } from "../models/login.model";
 
 @Injectable()
 export class UserService extends RestService {
@@ -23,7 +24,30 @@ export class UserService extends RestService {
       return this.post(endpoint, registerModel);
     }
 
-    login(): Observable<any> {
-        throw new Error("Method not implemented.");
+    login(loginModel: LoginModel): Observable<any> {
+      const endpoint = 'api/Users/login';
+      return this.post(endpoint, loginModel);
     }   
+    
+    getHeaderOptions() {
+      let token = JSON.parse(localStorage.getItem('token')).token;
+      return new HttpHeaders().set("Authorization", "Bearer " + token);
+      
+    }
+
+    findByEmailStartWith(email: string): Observable<any>{
+      const endpoint = 'api/Users/findByEmailStartsWith';
+
+      const params = new HttpParams()
+        .set('email', email);
+
+      const httpOptions = {
+        headers: this.getHeaderOptions(),
+        params: params
+      };
+        
+      return this.get(endpoint, httpOptions);
+    }
+
+
 }
