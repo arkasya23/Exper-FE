@@ -14,6 +14,7 @@ import { TripComponent } from './components/dashboard/trip/trip.component';
 import { TripService } from './shared/services/trip.service';
 import { AddTripComponent } from './dialogs/add-trip/add-trip.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { DialogAddMembers } from './dialogs/add-members/add-members.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
     TripComponent,
     AddTripComponent
     HeaderComponent,
+    DialogAddMembers
   ],
   imports: [
     BrowserModule,

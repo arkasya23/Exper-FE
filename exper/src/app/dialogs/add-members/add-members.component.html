@@ -1,0 +1,30 @@
+
+<mat-form-field class="example-full-width">
+  <input matInput type="text" placeholder="Email" #input="ngModel" [(ngModel)]="email" />
+</mat-form-field> 
+
+<div *ngFor="let member of checkedUsers">
+  <div class="row align-items-center">
+    <div class="col-10"> 
+      {{member.email}} 
+    </div>
+    <div class="col-2">
+      <mat-checkbox 
+        class="example-margin"
+        [checked]="member.checked"
+        (change)="updateUser(member, $event)">
+      </mat-checkbox>
+    </div>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="row">
+  <button  mat-button (click)="onNoClick()">
+    CANCEL
+  </button>
+  <button  mat-button (click)="onSave()">
+    SAVE
+  </button>
+</div>
