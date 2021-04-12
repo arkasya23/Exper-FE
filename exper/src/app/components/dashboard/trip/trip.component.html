@@ -1,18 +1,60 @@
 <mat-expansion-panel *ngFor="let trip of trips" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          <div class="col">
-              <div class="row">
-                {{trip.name}}
-              </div>
-              <div class="row">
-                  {{trip.groupSize}} Members
-              </div>
-          </div>
-      </mat-panel-title>
-      <mat-panel-description>
-        
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+        <div class="col">
+            <div class="row">
+              {{trip.name}}
+            </div>
+            <div class="row subtitle">
+                {{trip.users.length}} Members
+            </div>
+        </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>groups</mat-icon>
+            <span>MEMBERS</span>    
+        </div>
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <p> groupsss</p>
+        <div *ngFor="let user of trip.users">
+          {{user.email}}
+        </div>  -->
+        <app-members [trip]="trip"></app-members>
+
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>group</mat-icon>
+            <span>GROUP</span>    
+        </div>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>person</mat-icon>
+            <span>PERSONAL</span>    
+        </div>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>settings</mat-icon>
+            <span>SETTINGS</span>    
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</mat-expansion-panel>

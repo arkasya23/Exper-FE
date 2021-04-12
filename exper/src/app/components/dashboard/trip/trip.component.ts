@@ -10,19 +10,18 @@ import { TripService } from "src/app/shared/services/trip.service";
   styleUrls: ['trip.component.scss']
 })
 export class TripComponent implements OnInit {
-  panelOpenState = false;
-
   @Input() trips;
-  // trips;
-  constructor(private http: HttpClient,
-    private tripService: TripService){
-      
-  }
+
+  panelOpenState = false;
+  members: [];
+
+  constructor(
+    private http: HttpClient,
+    private tripService: TripService){}
 
   loadTrips() {
     this.tripService.getTrips().subscribe(trips => {
-      console.log(trips);
-      this.trips = trips;
+      this.trips = trips;  
     }, 
     err => {
       console.log(err);
