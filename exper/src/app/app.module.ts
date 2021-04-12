@@ -14,7 +14,9 @@ import { TripComponent } from './components/dashboard/trip/trip.component';
 import { TripService } from './shared/services/trip.service';
 import { AddTripComponent } from './dialogs/add-trip/add-trip.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { MembersComponent } from './components/dashboard/members/members.component';
 import { DialogAddMembers } from './dialogs/add-members/add-members.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { DialogAddMembers } from './dialogs/add-members/add-members.component';
     TripComponent,
     AddTripComponent
     HeaderComponent,
+    MembersComponent,
     DialogAddMembers
   ],
   imports: [
@@ -33,7 +36,8 @@ import { DialogAddMembers } from './dialogs/add-members/add-members.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialSharedModule
+    MaterialSharedModule,
+    FormsModule
   ],
   providers: [UserService, TripService],
   bootstrap: [AppComponent]
