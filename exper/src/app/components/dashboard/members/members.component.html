@@ -3,7 +3,10 @@
     {{trip.users.length}} Members are on this trip.
   </div>
   <div class="col-2 col-add">
-    <button mat-icon-button (click)="openDialog()">
+    <button 
+      mat-icon-button 
+      (click)="openDialog()" 
+      matTooltip="Add Members"> 
     <mat-icon>add</mat-icon>
     </button>
   </div>
