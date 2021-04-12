@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     DashboardComponent,
     TripComponent,
-    AddTripComponent
+    AddTripComponent,
     HeaderComponent,
     MembersComponent,
     DialogAddMembers
