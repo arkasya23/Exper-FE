@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { TripModel } from "../models/trip.model";
 import { RestService } from "./rest.service";
 
@@ -13,16 +13,11 @@ export class TripService extends RestService {
     super(http);
   }
 
-  getHeaderOptions() {
-    let token = JSON.parse(localStorage.getItem('token')).token;
-    return new HttpHeaders().set("Authorization", "Bearer " + token);
-    
-  }
-
   getTrips(): Observable<TripModel> { 
     const httpOptions = {
       headers: this.getHeaderOptions()
     };
+
     const endpoint = 'api/Trips';
     return this.get(endpoint, httpOptions);
   }
@@ -33,8 +28,15 @@ export class TripService extends RestService {
       headers: this.getHeaderOptions()
     };
 
-    return this.post(endpoint, trip, this.headers);
+    return this.post(endpoint, trip, httpOptions);
   }
 
+  addUsers(trip: any){
+    const endpoint = 'api/Trips/addUsers';
+    const httpOptions = {
+      headers: this.getHeaderOptions()
+    };
 
+    return this.post(endpoint, trip, httpOptions);
+  }
 }
