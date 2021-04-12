@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, Input} from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogAddMembers } from "src/app/dialogs/add-members/add-members.component";
 
@@ -7,20 +7,16 @@ import { DialogAddMembers } from "src/app/dialogs/add-members/add-members.compon
     templateUrl: 'members.component.html',
     styleUrls: ['members.component.scss']
 })
-export class MembersComponent implements OnInit {
+export class MembersComponent {
   @Input() trip;
-  // @Output() membersLength = new EventEmitter<any>();
   
   constructor(public dialog: MatDialog) {}
-  
-  ngOnInit(): void {
-    console.log('on iniiiiittt');
-    console.log(this.trip);
-  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddMembers, {
-      width: '300px',
+      panelClass: 'no-padding-dialog',
+      maxWidth: 'none',
+      width: '90vw',
       data: {
         trip: this.trip
       }
@@ -28,11 +24,8 @@ export class MembersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        console.log(result);
         this.trip.users = result.users
       }
-     
     });
   }
-
 }

@@ -11,7 +11,7 @@ import { UserService } from "src/app/shared/services/user.service";
 @Component({
     selector: 'dialog-add-members',
     templateUrl: 'add-members.component.html',
-    styleUrls: ['add-members.component.scss']
+    styleUrls: ['add-members.component.scss'],
 })
 export class DialogAddMembers implements AfterViewInit {
   @ViewChild('input') input: FormControl;
@@ -44,9 +44,13 @@ export class DialogAddMembers implements AfterViewInit {
               this.checkedUsers.push({email: r.email, id: r.id, checked: false});
             })
           }
+          else {
+            this.checkedUsers = [];
+          }
+
         }, 
         err => {
-          console.log(err)
+          this.checkedUsers = [];
         });
       }
     );
@@ -64,9 +68,14 @@ export class DialogAddMembers implements AfterViewInit {
       userIds: users
     };
 
-    this.tripService.addUsers(updatedTrip).subscribe(res => { 
-      this.dialogRef.close(res);
-    });
+    if(users.length > 0) {
+      this.tripService.addUsers(updatedTrip).subscribe(res => { 
+        this.dialogRef.close(res);
+      }, err => {
+        console.log('errr', err);
+        this.dialogRef.close();
+      });
+    }
   }
 
   getUsersToAdd(){
