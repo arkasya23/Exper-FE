@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, Input, OnInit } from "@angular/core";
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { TripModel } from "src/app/shared/models/trip.model";
 import { TripService } from "src/app/shared/services/trip.service";
 
@@ -9,15 +9,26 @@ import { TripService } from "src/app/shared/services/trip.service";
   templateUrl: 'trip.component.html',
   styleUrls: ['trip.component.scss']
 })
-export class TripComponent implements OnInit {
-  @Input() trips;
+export class TripComponent implements OnInit, AfterViewInit, OnChanges {
+  @Input() trips: any;
+  @Input() updatedTrips;
 
   panelOpenState = false;
   members: [];
 
   constructor(
     private http: HttpClient,
-    private tripService: TripService){}
+    private tripService: TripService){
+  }
+    
+  ngOnChanges(changes: SimpleChanges): void {
+    if(!changes.updatedTrips.firstChange && changes.updatedTrips.currentValue.length > 0) {
+      this.trips.push(changes.updatedTrip.currentValue); 
+    }
+  }
+
+  ngAfterViewInit(): void {
+  }
 
   loadTrips() {
     this.tripService.getTrips().subscribe(trips => {

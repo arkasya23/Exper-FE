@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header (updatedTrips)="getUpdatedTrips($event)"></app-header>
 <div class="trips-container">
-  <app-trip> </app-trip>
+  <app-trip [updatedTrips]="updatedTrips"> </app-trip>
 </div>

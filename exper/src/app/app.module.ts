@@ -12,7 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserService } from './shared/services/user.service';
 import { TripComponent } from './components/dashboard/trip/trip.component';
 import { TripService } from './shared/services/trip.service';
-import { AddTripComponent } from './dialogs/add-trip/add-trip.component';
+import { DialogAddTrip } from './dialogs/add-trip/add-trip.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MembersComponent } from './components/dashboard/members/members.component';
 import { DialogAddMembers } from './dialogs/add-members/add-members.component';
@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     DashboardComponent,
     TripComponent,
-    AddTripComponent,
+    DialogAddTrip,
     HeaderComponent,
     MembersComponent,
     DialogAddMembers

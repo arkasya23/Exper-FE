@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'app-dashboard',
@@ -7,4 +7,10 @@ import { Component } from "@angular/core";
 })
 export class DashboardComponent {
 
+    updatedTrips = [];
+
+    getUpdatedTrips($event) {
+        console.log($event);
+        this.updatedTrips = $event;
+    }
 }
