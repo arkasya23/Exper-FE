@@ -24,6 +24,8 @@ import { DialogAddPersonalComponent } from './dialogs/add-personal-expense/add-p
 import { DialogRemoveComponent } from './dialogs/remove/remove.component';
 import { DialogUpdatePersonalExpenseComponent } from './dialogs/update-personal-expense/update-personal-expense.component';
 import { DialogUpdateGroupExpenseComponent } from './dialogs/update-group-expense/update-group-expense.component';
+import { NotificationsComponent } from './shared/components/header/notifications/notifications.component';
+import { NotificationsService } from './shared/services/notifications.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { DialogUpdateGroupExpenseComponent } from './dialogs/update-group-expens
     DialogRemoveComponent,
     DialogUpdatePersonalExpenseComponent,
     DialogUpdateGroupExpenseComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
