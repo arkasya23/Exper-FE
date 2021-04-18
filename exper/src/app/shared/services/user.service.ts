@@ -16,7 +16,7 @@ export class UserService extends RestService {
   }
 
   updateToken(newToken) {
-    localStorage.setItem('token', JSON.stringify(newToken));
+    sessionStorage.setItem('token', JSON.stringify(newToken));
   }
 
   register(registerModel : RegisterModel): Observable<any> {

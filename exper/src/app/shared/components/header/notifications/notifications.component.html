@@ -1,33 +1,12 @@
-<div class="notifications">
-
-  <div class="row">
-    <div class="col title">
-      Notifications
-    </div>
-    <div class="col btn-close">
-      <button mat-button>
-        <mat-icon>clear</mat-icon>
-      </button>
-    </div>
-  </div>
-
-  <mat-divider></mat-divider>
-
-  <ng-container *ngIf="notifications.length === 0; else notificationsRef">
-    <div class="notification-container">
-      <div class="content"> No new notifications</div>
-    </div>
-  </ng-container>
-  <ng-template #notificationsRef>
-    <div class="notification-container" ngFor="notification of notifications">
-      <div class="subtitle">
-        {{notification.title}}
-      </div>
-      <div class="content">
-        {{notification.description}}
-      </div>
-    </div>
-    
-  </ng-template>
-
+<span mat-menu-item disableRipple>
+    <strong>
+        Notification
+    </strong>
+</span>
+<div *ngFor="let notification of notifications" mat-menu-item class="custom-menu-item">
+    <p class="subtitle">{{ notification.title }}</p>
+    <p class="content">{{ notification.description }}</p>
+</div>
+<div mat-menu-item *ngIf="notifications?.length === 0">
+    You have 0 notifications.
 </div>

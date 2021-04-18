@@ -1,8 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .no-padding-dialog .mat-dialog-container {
     padding: 16px 0 0 0;
-  }
+}
+
+.custom-menu {
+    min-width: 200px !important;
+    max-width: 100% !important;
+    margin: 0 16px;
+
+    .mat-menu-item {
+        border-bottom: 1px solid rgba(33, 33, 33, .08);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &.custom-menu-item {
+            height: initial;
+            min-height: 48px;
+            line-height: initial;
+            padding: 8px 16px;
+        }
+    }
+}
