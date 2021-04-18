@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { $ } from "protractor";
 import { TripModel } from "src/app/shared/models/trip.model";
 import { TripService } from "src/app/shared/services/trip.service";
 
@@ -22,8 +23,8 @@ export class TripComponent implements OnInit, AfterViewInit, OnChanges {
   }
     
   ngOnChanges(changes: SimpleChanges): void {
-    if(!changes.updatedTrips.firstChange && changes.updatedTrips.currentValue.length > 0) {
-      this.trips.push(changes.updatedTrip.currentValue); 
+    if(!changes.updatedTrips.firstChange && changes.updatedTrips.currentValue !== undefined) {
+      this.trips.push(changes.updatedTrips.currentValue); 
     }
   }
 
@@ -41,6 +42,12 @@ export class TripComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnInit(): void {
     this.loadTrips();
+  }
+
+  handleDeletedUser(trip, user) {
+    let currentTrip = this.trips.filter(t => t.id === trip.id);
+    let remainingUsers = currentTrip[0].users.filter(u => u.id !== user.id);
+    currentTrip[0].users = remainingUsers;
   }
 
 }

@@ -10,11 +10,13 @@
       <mat-icon>add</mat-icon>
     </button>
     
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>notifications</mat-icon>
-    </button>
+    <div class="notifications-button">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>notifications</mat-icon>
+      </button>
+  </div>
 
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logout()">
       <mat-icon>logout</mat-icon>
     </button>
   </div>

@@ -7,7 +7,7 @@ import { TripService } from "src/app/shared/services/trip.service";
 import { UserService } from "src/app/shared/services/user.service";
 
 @Component({
-  selector: 'app-add-trip',
+  selector: 'dialog-add-trip',
   templateUrl: 'add-trip.component.html',
   styleUrls: ['add-trip.component.scss']
 })

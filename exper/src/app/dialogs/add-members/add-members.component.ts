@@ -1,17 +1,14 @@
 import { AfterViewInit, Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-// import {FormsModule} from '@angular/forms'
-// import 'rxjs/add/operator/debounceTime';
-// import 'rxjs/add/operator/map';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { TripService } from "src/app/shared/services/trip.service";
 import { UserService } from "src/app/shared/services/user.service";
 
 @Component({
-    selector: 'dialog-add-members',
-    templateUrl: 'add-members.component.html',
-    styleUrls: ['add-members.component.scss'],
+  selector: 'dialog-add-members',
+  templateUrl: 'add-members.component.html',
+  styleUrls: ['add-members.component.scss'],
 })
 export class DialogAddMembers implements AfterViewInit {
   @ViewChild('input') input: FormControl;
@@ -30,7 +27,6 @@ export class DialogAddMembers implements AfterViewInit {
     private tripService: TripService
   ) {}
 
-
   ngAfterViewInit(): void {
     this.input.valueChanges
       .pipe(
@@ -47,7 +43,6 @@ export class DialogAddMembers implements AfterViewInit {
           else {
             this.checkedUsers = [];
           }
-
         }, 
         err => {
           this.checkedUsers = [];
@@ -55,7 +50,6 @@ export class DialogAddMembers implements AfterViewInit {
       }
     );
   }
-
 
   onNoClick(): void {
     this.dialogRef.close();

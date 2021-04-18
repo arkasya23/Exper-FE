@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Output, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 import { DialogAddTrip } from "src/app/dialogs/add-trip/add-trip.component";
 
 @Component({
@@ -10,7 +11,11 @@ import { DialogAddTrip } from "src/app/dialogs/add-trip/add-trip.component";
 export class HeaderComponent {
 
   @Output() updatedTrips = new EventEmitter<any>();
-  constructor(public dialog: MatDialog) {}
+  isOpen = true;
+  
+  constructor(
+    public dialog: MatDialog,  
+    private router: Router) {}
 
   
   openAddTripDialog() {
@@ -24,5 +29,10 @@ export class HeaderComponent {
       console.log('The dialog was closed');
       this.updatedTrips.emit(result);
     });
+  }
+
+  logout() {
+    localStorage.setItem('token', null);
+    this.router.navigate(['/login']);
   }
 }

@@ -1,0 +1,36 @@
+<div>
+  <div class="expense-info-row" >
+    <div class="col-10 expense-col">
+      <ng-container *ngIf="personalExpenses.length === 0; else multipleExpenses"> No expenses.</ng-container>
+      <ng-template #multipleExpenses>
+        {{personalExpenses.length}} Personal expenses for this trip.
+      </ng-template>   
+    </div>
+
+    <div class="col-2 expense-col">
+      <button 
+        class="add-button"
+        mat-icon-button 
+        (click)="openDialog()" 
+        matTooltip="Add Expenses"> 
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+  
+  <div class="group-expenses-container">
+    <div *ngFor="let expense of personalExpenses">
+        <div class="group-expense">
+          <div> $ {{expense.amount}} </div>
+          <div class="description">{{expense.description}}</div>
+          <div class="buttons-row">
+            <button mat-stroked-button class="expense-button" (click)="updateExpense(expense)"><mat-icon>edit</mat-icon> CHANGE</button>
+            <button mat-stroked-button class="expense-button" (click)="openRemoveDialog(expense)"><mat-icon>clear</mat-icon> DELETE</button>    
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+  

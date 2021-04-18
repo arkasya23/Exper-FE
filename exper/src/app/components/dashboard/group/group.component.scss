@@ -1,0 +1,42 @@
+.expense-info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.expense-col {
+  display:flex;
+  padding-left: 24px;
+}
+
+.add-button {
+  color: #1B82E6;
+}
+
+.group-expense {
+  padding: 15px;
+}
+
+.divide-text{
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+
+}
+.buttons-row {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.description {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.expense-button {
+  font-size: 14px;
+  font-family: 'Roboto' sans-serif;
+  color: #2C3539;
+  margin: 0 16px;
+}

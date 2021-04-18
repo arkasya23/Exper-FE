@@ -28,7 +28,15 @@ import { FormsModule } from '@angular/forms';
     DialogAddTrip,
     HeaderComponent,
     MembersComponent,
-    DialogAddMembers
+    DialogAddMembers,
+    MembersComponent,
+    GroupComponent,
+    DialogAddGroupExpense,
+    PersonalExpensesComponent,
+    DialogAddPersonalComponent,
+    DialogRemoveComponent,
+    DialogUpdatePersonalExpenseComponent,
+    DialogUpdateGroupExpenseComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +45,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialSharedModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [UserService, TripService],
+  providers: [UserService, TripService, NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

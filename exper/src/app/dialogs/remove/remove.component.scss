@@ -1,0 +1,19 @@
+.title {
+  padding: 20px;
+  font-family: 'Roboto' sans-serif;
+  font-size: 16px;
+}
+
+.btn-row {
+  height: 52px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 0;
+}
+
+.content {
+  padding: 20px;
+  font-family: 'Roboto' sans-serif;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}

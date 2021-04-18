@@ -20,7 +20,7 @@
       {{user.email}}
     </div>
     <div class="col-2 col-delete">
-      <button mat-icon-button>
+      <button mat-icon-button (click)="deleteTripUser(user)">
           <mat-icon>clear</mat-icon>
       </button>
     </div>

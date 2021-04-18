@@ -1,23 +1,20 @@
 .container {
-    padding: 0 16px;
+  padding: 0 16px;
 }
 
 .trip-name-input {
-    width: 100%;
-    // margin-top: 16px;
+  width: 100%;
 }
 
 .title {
-    margin-bottom: 20px;
-    padding: 0 16px;
-    
+  margin-bottom: 20px;
+  padding: 0 16px;
 }
 
 .form-container {
-    margin-top: 10px;
-    padding: 0 16px;
+  margin-top: 10px;
+  padding: 0 16px;
 }
-
 
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background, 
 .mat-checkbox-indeterminate .mat-checkbox-background {
@@ -39,21 +36,19 @@
 }
 
 .user-row {
-display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   height: 48px;
 }
 
 .col-text {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
-
 .btn-row {
-    height: 52px;
-    display: flex;
-    flex-direction: row-reverse;
-    margin-bottom: 0;
-  }
-  
+  height: 52px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 0;
+}

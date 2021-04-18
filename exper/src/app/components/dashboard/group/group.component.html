@@ -1,0 +1,54 @@
+<div>
+  <div class="expense-info-row" >
+    <div class="col-10 expense-col">
+      <ng-container *ngIf="groupExpenses.length === 0; else multipleExpenses"> No group expenses.</ng-container>
+      <ng-template #multipleExpenses>
+        {{groupExpenses.length}} Group expenses for this trip.
+      </ng-template>
+    </div>
+    <div class="col-2 expense-col">
+      <button 
+        class="add-button"
+        mat-icon-button 
+        (click)="openDialog()" 
+        matTooltip="Add Expenses"> 
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="group-expenses-container">
+    <div class="" *ngFor="let expense of groupExpenses">
+      <div class="group-expense">
+      <ng-container *ngIf="expense.divideBetweenAllMembers === true; else notDividedBetweenAllMembers">
+        <div class="divide-text">
+          EXPENSE - DIVIDED BETWEEN ALL TRIP MEMBERS
+        </div>
+      </ng-container>
+      <ng-template #notDividedBetweenAllMembers>
+        <div class="divide-text"> EXPENSE </div>
+      </ng-template>
+      <div> $ {{expense.amount}} </div>
+
+      <ng-containter *ngIf="expense.divideBetweenAllMembers === true; else checkedUsersRef">
+        <div> {{trip.users.length}} Members</div>
+      </ng-containter>
+      
+      <ng-template #checkedUsersRef>
+        {{expense.users.length}} Members
+      </ng-template>
+
+      <div class="description">{{expense.description}}</div>
+      <div class="buttons-row">
+        <button mat-stroked-button class="expense-button" (click)="updateExpense(expense)" ><mat-icon>edit</mat-icon> CHANGE</button>
+        <button mat-stroked-button class="expense-button" (click)="openRemoveDialog(expense)"><mat-icon>clear</mat-icon> DELETE</button>
+      </div>
+    </div>
+      
+  <mat-divider></mat-divider>
+
+    </div>
+  </div>
+
+
+</div>
