@@ -17,6 +17,13 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { MembersComponent } from './components/dashboard/members/members.component';
 import { DialogAddMembers } from './dialogs/add-members/add-members.component';
 import { FormsModule } from '@angular/forms';
+import { GroupComponent } from './components/dashboard/group/group.component';
+import { DialogAddGroupExpense } from './dialogs/add-group-expense/add-group-expense.component';
+import { PersonalExpensesComponent } from './components/dashboard/personal-expenses/personal-expenses.component';
+import { DialogAddPersonalComponent } from './dialogs/add-personal-expense/add-personal-expense.component';
+import { DialogRemoveComponent } from './dialogs/remove/remove.component';
+import { DialogUpdatePersonalExpenseComponent } from './dialogs/update-personal-expense/update-personal-expense.component';
+import { DialogUpdateGroupExpenseComponent } from './dialogs/update-group-expense/update-group-expense.component';
 
 @NgModule({
   declarations: [
