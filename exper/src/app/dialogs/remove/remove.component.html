@@ -1,0 +1,20 @@
+<div class="title">
+    Remove {{componentName}}
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="content">
+   <p> Are your sure you want to remove this {{componentName}}? </p>
+   <p> This action cannot be reversed! </p>
+</div>
+
+<mat-divider></mat-divider>
+<div class="btn-row">
+  <button mat-button (click)="remove()">
+    YES
+  </button>
+  <button mat-button (click)="cancel()">
+    NO
+  </button>
+</div>

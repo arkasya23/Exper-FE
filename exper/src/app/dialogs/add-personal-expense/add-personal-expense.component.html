@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="title">Add Group Expense</div>
+</div>
+  
+<mat-divider></mat-divider>
+<div class="container form-container">
+  <mat-form-field appearance="outline" class="email-form-field">
+    <input matInput type="text" placeholder="Description" #descriptionInput="ngModel" [(ngModel)]="description" required/>
+  </mat-form-field> 
+  <mat-form-field appearance="outline" class="email-form-field mt-2">
+    <input matInput type="text" placeholder="Amount" #amountInput="ngModel" [(ngModel)]="amount" required/>
+  </mat-form-field> 
+</div>
+
+<div class="btn-row">
+  <button mat-button (click)="onSave()">
+    SAVE
+  </button>
+  <button mat-button (click)="onNoClick()">
+    CANCEL
+  </button>
+</div>

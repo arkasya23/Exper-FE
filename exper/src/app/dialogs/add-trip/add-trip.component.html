@@ -1,0 +1,44 @@
+
+<div class="title">Add trip</div>
+<mat-divider></mat-divider>
+
+<div class="form-container">
+  <mat-form-field appearance="outline" class="trip-name-input">
+    <input matInput type="text" placeholder="Trip name" #input="ngModel" [(ngModel)]="tripName" class="trip-name-input" />
+  </mat-form-field> 
+</div>
+
+<div class="title">Add members</div>
+<mat-divider></mat-divider>
+
+<div class="form-container">
+  <mat-form-field appearance="outline" class="trip-name-input">
+    <input matInput type="text" placeholder="Search friends by email" #emailInput="ngModel" [(ngModel)]="email" class="email-input" />
+  </mat-form-field> 
+</div>
+
+
+<div *ngFor="let user of checkedUsers">
+  <div class="user-row">
+    <div class="col-10 col-text"> 
+      {{user.email}} 
+    </div>
+    <div class="col-2">
+      <mat-checkbox 
+        class="example-margin"
+        [checked]="user.checked"
+        (change)="updateUser(user, $event)">
+      </mat-checkbox>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+
+<div class="btn-row">
+  <button mat-button (click)="onSave()">
+    ADD
+  </button>
+  <button mat-button (click)="onNoClick()">
+    CANCEL
+  </button>
+</div>

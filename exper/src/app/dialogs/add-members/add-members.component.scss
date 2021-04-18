@@ -1,0 +1,62 @@
+.title {
+  font-family: roboto-regular;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, 
+.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: black !important;
+}
+
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: black !important;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  height: 24px;
+  width: 24px;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  height: 24px;
+  width: 24px;
+}
+
+:host ::ng-deep .mat-form-field-flex{
+  height: 42px;
+  line-height: 0;
+}
+
+.email-form-field {
+  width: 100%;
+  height: 56px !important;
+  max-height: 56px;
+}
+
+.btn-row {
+  height: 52px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 0;
+}
+
+.custom-form-control {
+  height: 56px;
+  border: 1px solid #2C3539;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  padding: 0px 0 5px 0;
+}
+
+.user-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 48px;
+}
+
+.container {
+  padding: 0 16px;
+}

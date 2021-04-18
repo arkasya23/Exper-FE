@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="title">Add Group Expense</div>
+</div>
+  
+<mat-divider></mat-divider>
+<div class="container form-container">
+  <mat-form-field appearance="outline" class="email-form-field">
+    <input matInput type="text" placeholder="Description" #descriptionInput="ngModel" [(ngModel)]="description" required/>
+  </mat-form-field> 
+
+  <mat-form-field appearance="outline" class="email-form-field mt-2">
+      <input matInput type="text" placeholder="Amount" #amountInput="ngModel" [(ngModel)]="amount" required/>
+  </mat-form-field> 
+  
+  <div class="row split-row">
+    <div class="col-1">
+      <mat-checkbox 
+        [checked]="divideBetweenAllMembers"
+        (change)="toggleTripMembers($event.checked)">
+      </mat-checkbox>
+    </div>
+    <div class="col-10 split-text">
+      Split equally between all trip members
+    </div>
+  </div>
+    
+  <ng-container *ngIf="!divideBetweenAllMembers">
+    <div class="members-container">
+      <div *ngFor="let user of checkedUsers">
+        <div class="user-row">
+          <div class="col-10 col-text"> 
+            {{user.email}} 
+          </div>
+          <div class="col-2">
+            <mat-checkbox 
+              class="example-margin"
+              [checked]="user.checked"
+              (change)="toggleUser(user, $event)">
+            </mat-checkbox>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+<div class="btn-row">
+  <button mat-button (click)="onSave()">
+    SAVE
+  </button>
+  <button mat-button (click)="onNoClick()">
+    CANCEL
+  </button>
+</div>

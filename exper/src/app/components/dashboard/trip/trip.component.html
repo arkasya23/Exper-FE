@@ -1,0 +1,61 @@
+<mat-expansion-panel *ngFor="let trip of trips" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+        <div class="col">
+            <div class="row title">
+              {{trip.name}}
+            </div>
+            <div class="row subtitle">
+                {{trip.users.length}} Members
+            </div>
+        </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>groups</mat-icon>
+            <span>MEMBERS</span>    
+        </div>
+      </ng-template>
+      <ng-template matTabContent>
+        <app-members [trip]="trip" (deletedUser)="handleDeletedUser(trip, $event)"></app-members>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>group</mat-icon>
+            <span>GROUP</span>    
+        </div>
+      </ng-template>
+      <ng-template matTabContent>
+        <app-group [trip]="trip"></app-group>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>person</mat-icon>
+            <span>PERSONAL</span>    
+        </div>
+      </ng-template>
+      <ng-template matTabContent>
+        <app-personal-expenses [trip]="trip"></app-personal-expenses>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+            <mat-icon>settings</mat-icon>
+            <span>SETTINGS</span>    
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</mat-expansion-panel>

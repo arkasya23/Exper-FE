@@ -1,1 +1,4 @@
-<p> dashboard placeholder </p>
+<app-header (updatedTrips)="getUpdatedTrips($event)"></app-header>
+<div class="trips-container">
+  <app-trip [updatedTrips]="updatedTrips"> </app-trip>
+</div>

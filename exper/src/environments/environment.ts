@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverLink: 'https://magic.shomyx.com:32443/'
+  serverLink: 'https://magic.shomyx.com:36443/'
 };
 
 /*
