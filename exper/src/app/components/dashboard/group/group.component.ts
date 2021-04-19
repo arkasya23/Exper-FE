@@ -17,10 +17,10 @@ export class GroupComponent implements OnInit {
   groupExpenses: any = [];
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private tripService: TripService,
     public dialog: MatDialog
-    ){}
+  ) { }
 
   ngOnInit(): void {
     this.getTripExpenses();
@@ -49,7 +49,7 @@ export class GroupComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
+      if (result) {
         this.groupExpenses.push(result);
         console.log(this.groupExpenses);
       }
@@ -69,10 +69,7 @@ export class GroupComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      let updatedExpenses = this.groupExpenses.filter(e => {
-        e.id !== expense.id
-      });
-
+      let updatedExpenses = this.groupExpenses.filter(e => e.id !== expense.id);
       this.groupExpenses = updatedExpenses;
     });
   }
@@ -90,9 +87,9 @@ export class GroupComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
+      if (result) {
         this.groupExpenses.forEach(e => {
-          if(e.id === expense.id) {
+          if (e.id === expense.id) {
             e.description = result.description;
             e.amount = result.amount;
             e.users = result.users;
@@ -100,9 +97,6 @@ export class GroupComponent implements OnInit {
           }
         });
       }
-      // else {
-
-      // }
     }, err => {
       console.log(err);
     });
