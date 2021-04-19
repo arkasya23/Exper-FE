@@ -1,0 +1,26 @@
+.notifications {
+  background-color: white;
+}
+
+.title {
+  font-family: 'Roboto'sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.subtitle {
+  margin-bottom: 0;
+  font-family: 'Roboto'sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.content {
+  margin-bottom: 0;
+  font-family: 'Roboto'sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: pre-line;
+  overflow: hidden;
+}

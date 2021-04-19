@@ -31,7 +31,7 @@ export class RestService {
   }
 
   getHeaderOptions() {
-    let token = JSON.parse(localStorage.getItem('token')).token;
+    let token = JSON.parse(sessionStorage.getItem('token')).token;
     return new HttpHeaders().set("Authorization", "Bearer " + token);  
   }
 }

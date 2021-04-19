@@ -1,23 +1,30 @@
 <mat-toolbar>
-  <div class="logo-container">
-    <img src="../../../../assets/images/header-logo.svg"/>
-  </div>
+    <div class="logo-container">
+        <img src="../../../../assets/images/header-logo.svg" />
+    </div>
 
-  <span class="title">Exper</span>
-  <span class="example-spacer"></span>
-  <div class="buttons-container">
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="openAddTripDialog()">
-      <mat-icon>add</mat-icon>
-    </button>
-    
-    <div class="notifications-button">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>notifications</mat-icon>
-      </button>
-  </div>
+    <span class="title">Exper</span>
+    <span class="example-spacer"></span>
+    <div class="buttons-container">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+            (click)="openAddTripDialog()">
+            <mat-icon>add</mat-icon>
+        </button>
 
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logout()">
-      <mat-icon>logout</mat-icon>
-    </button>
-  </div>
+        <div class="notifications-button">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+                [matMenuTriggerFor]="menu">
+                <mat-icon *ngIf="!hasNotifications">notifications_none</mat-icon>
+                <mat-icon *ngIf="hasNotifications">notifications</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="custom-menu">
+                <app-notifications></app-notifications>
+            </mat-menu>
+        </div>
+
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+            (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
 </mat-toolbar>
