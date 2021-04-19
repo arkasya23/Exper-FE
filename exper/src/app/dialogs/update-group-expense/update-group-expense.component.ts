@@ -38,7 +38,7 @@ export class DialogUpdateGroupExpenseComponent implements OnInit {
     }
     else {
       let expenseUsers = this.data.expense.users;
-      this.users.forEach(user => {
+      expenseUsers.forEach(user => {
         if(expenseUsers.includes(user)) {
           this.checkedUsers.push({
             id: user.id,
